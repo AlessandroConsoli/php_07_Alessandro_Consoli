@@ -1,13 +1,5 @@
 <?php
 
-$password = readline('Inserisci una password: ');
-
-echo "password inserita: " . $password . "\n";
-
-
-
-
-
 // Regola 1 - Minimo 8 Caratteri
 
 function checkLenght($pwd){
@@ -21,7 +13,6 @@ function checkLenght($pwd){
     }
 };
 
-// checkLenght($password);
 
 
 
@@ -38,7 +29,6 @@ function checkNumber($pwd){
     return false;
 };
 
-// checkNumber($password);
 
 
 
@@ -55,7 +45,6 @@ function checkChars($pwd){
     return false;
 }
 
-// checkChars($password);
 
 
 
@@ -74,7 +63,6 @@ function checkSpecialChars($pwd){
     return false;
 }
 
-// checkSpecialChars($password);
 
 
 
@@ -88,14 +76,17 @@ function checkPassword($pwd){
     $fourth_rule = checkSpecialChars($pwd);
 
     if ($first_rule && $second_rule && $third_rule && $fourth_rule) {
-        echo "Password accettata";
+        echo "Password accettata! \n";
     }
-
+    return $first_rule && $second_rule && $third_rule && $fourth_rule;
 }
 
-checkPassword($password);
 
 
+
+do {
+    $password = readline("Inserisci una password: \n");
+} while (!checkPassword($password));
 
 
 
